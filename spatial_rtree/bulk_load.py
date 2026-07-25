@@ -26,7 +26,7 @@ def read_points(path: str | Path) -> list[LeafEntry]:
     """
 
     input_path = Path(path)
-    with input_path.open("r", encoding="utf-8") as handle:
+    with input_path.open(encoding="utf-8") as handle:
         lines = handle.readlines()
 
     if not lines:
