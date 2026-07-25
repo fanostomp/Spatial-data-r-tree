@@ -163,7 +163,7 @@ def read_query_file(path: str | Path) -> list[tuple[int, list[float]]]:
     """Read queries while preserving their zero-based physical line numbers."""
 
     queries: list[tuple[int, list[float]]] = []
-    with Path(path).open("r", encoding="utf-8") as handle:
+    with Path(path).open(encoding="utf-8") as handle:
         for line_number, line in enumerate(handle):
             if line.strip():
                 queries.append((line_number, parse_query_line(line)))
