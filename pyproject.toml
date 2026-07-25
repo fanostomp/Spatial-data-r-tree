@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spatial-data-r-tree"
+version = "1.0.0"
+description = "STR R-tree construction and spatial query evaluation in Python"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+build-rtree = "spatial_rtree.cli:build_main"
+query-rtree = "spatial_rtree.cli:query_main"
+
+[tool.setuptools.packages.find]
+include = ["spatial_rtree*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
