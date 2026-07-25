@@ -53,7 +53,7 @@ def load_rtree(path: str | Path) -> RTree:
     nodes: dict[int, Node] = {}
     root_id: int | None = None
 
-    with input_path.open("r", encoding="utf-8") as handle:
+    with input_path.open(encoding="utf-8") as handle:
         for line_number, raw_line in enumerate(handle, start=1):
             line = raw_line.strip()
             if not line:
